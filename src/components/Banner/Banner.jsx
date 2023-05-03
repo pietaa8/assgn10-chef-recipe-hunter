@@ -12,7 +12,7 @@ const Banner = () => {
     },[])
     return (
         <div>
-            <h3>Our Chefs</h3>
+            <h3 className='text-center mt-5'>Our Chefs</h3>
             {
                 chefs.map(chef=> <Chefs
                 key={chef.id}
