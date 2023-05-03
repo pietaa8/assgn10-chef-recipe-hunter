@@ -4,6 +4,8 @@ import Home from "../pages/Home/Home/Home"
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Blog from "../shared/Blog/Blog";
+import ChefDetails from "../components/ChefDetails/ChefDetails";
+import NotFound from "../components/NotFound/NotFound";
 
 const router =createBrowserRouter([
 
@@ -15,6 +17,14 @@ const router =createBrowserRouter([
                 path:'/',
                 element:<Home></Home>
             },
+            {
+                path:'chef/:chefId',
+                element:<ChefDetails></ChefDetails>,
+                loader:()=>fetch('http://localhost:5000/chefs')
+        
+        
+        
+              },
 
             {
                 path:'blog',
@@ -28,7 +38,11 @@ const router =createBrowserRouter([
             {
                 path: 'register',
                 element: <Register></Register>
-            }
+            },
+            {
+                path: "*",
+                element: <NotFound></NotFound>,
+              }
         ]
     }
 ])
