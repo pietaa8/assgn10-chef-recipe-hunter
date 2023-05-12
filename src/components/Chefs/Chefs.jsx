@@ -1,9 +1,10 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
 const Chefs = ({chef}) => {
   const {id, name, img, experience, likes, numRecipes } =chef;
+
+
   return (
     <div className="text-center">
       <Card className="d-flex flex-row my-3">
@@ -13,7 +14,7 @@ const Chefs = ({chef}) => {
           <Card.Text>{experience}+ experience</Card.Text>
           <p>{likes} Likes</p>
           <p>Number of Recipes: {numRecipes}</p>
-          <Button variant="primary" style={{color:'white'}}> <Link to={`chef/${chef.id}`}>View Details</Link></Button>
+          <Button variant="primary" style={{color:'white',textDecoration:'none'}}>View Details</Button>
         </Card.Body>
       </Card>
     </div>

@@ -1,12 +1,11 @@
-
 import React from 'react';
 
-const Home = () => {
+const Emni = () => {
     return (
         <div>
-    
+            <p>Emni Page</p>
         </div>
     );
 };
 
-export default Home;
+export default Emni;

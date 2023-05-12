@@ -13,6 +13,9 @@ const NavigationBar = () => {
           .then()
           .catch(error => console.log(error));
   }
+  const handleLinkClick = (event) => {
+    console.log(`Clicked on link with URL: ${event.target.href}`);
+  };
 
 
 
