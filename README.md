@@ -18,5 +18,5 @@ Firebase: A cloud-based platform for building web and mobile applications
 GETTING STARTED:
 To run this project locally, you'll need to have Node.js installed on your computer. Once you have Node.js installed, follow these steps:
 
-LIVE SITE LINK:
+LIVE SITE LINK: https://assignment-ten-6a2ed.web.app
 
