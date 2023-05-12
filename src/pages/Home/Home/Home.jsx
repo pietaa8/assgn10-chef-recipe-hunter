@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Emni = () => {
+const Home = () => {
     return (
         <div>
-            <p>Emni Page</p>
+            <h2>This is home</h2>
         </div>
     );
 };
 
-export default Emni;
+export default Home;

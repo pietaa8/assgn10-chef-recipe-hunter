@@ -1,19 +1,18 @@
 import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../peoviders/AuthProvider';
+import { AuthContext } from '../../../peoviders/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
-import app from '../../firebase/firebase.config';
+import app from '../../../firebase/firebase.config';
 
 const Login = () => {
+    const {signIn}=useContext(AuthContext)
 
-    const {signIn}=useContext(AuthContext);
-    const goolgeprovider=new GoogleAuthProvider;
+    const googleProvider=new GoogleAuthProvider;
     const githubProvider=new GithubAuthProvider;
+    const [error, setError] = useState(null);
 
     const auth=getAuth(app);
-
-    const [error, setError] = useState(null);
 
     const handleLogin = event => {
         event.preventDefault();
@@ -34,7 +33,7 @@ const Login = () => {
     }
 
     const handleGoogleSignIn=()=>{
-        signInWithPopup(auth,goolgeprovider)
+        signInWithPopup(auth,googleProvider)
         .then(result => {
             const loggedUser = result.user;
             console.log(loggedUser);
@@ -58,9 +57,9 @@ const Login = () => {
           });
       };
 
-
     return (
-        <Container className='w-25 mx-auto'>
+        <div>
+             <Container className='w-25 mx-auto'>
             <h3>Please Login</h3>
             <Form onSubmit={handleLogin}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -86,10 +85,13 @@ const Login = () => {
 
                 </Form.Text>
                 <Form.Text className="text-danger">
-              {error}
+                    {error}
+        
                 </Form.Text>
             </Form>
         </Container>
+            
+        </div>
     );
 };
 

@@ -1,33 +1,27 @@
 import React, { useContext } from 'react';
-import { AuthContext } from '../../peoviders/AuthProvider';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
-import { FaUserCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../peoviders/AuthProvider';
+import { FaUserCircle } from 'react-icons/fa';
 
 const NavigationBar = () => {
 
-    const {user,logOut}=useContext(AuthContext);
+    const {user,logOut}=useContext(AuthContext)
 
     const handleLogOut = () => {
-      logOut()
-          .then()
-          .catch(error => console.log(error));
-  }
-  const handleLinkClick = (event) => {
-    console.log(`Clicked on link with URL: ${event.target.href}`);
-  };
-
-
-
+        logOut()
+            .then()
+            .catch(error => console.log(error));
+    }
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="light">
+             <Navbar collapseOnSelect expand="lg" bg="dark" variant="light">
       <Container>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-          <Link to="/">Home</Link>
-            <Link to="/blog">Blog</Link>
+        <Link to='/'>Home</Link>
+        <Link to='/blog'>Blog</Link>
         
           </Nav>
           <Nav>
@@ -46,7 +40,6 @@ const NavigationBar = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-            
         </div>
     );
 };

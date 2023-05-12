@@ -20,6 +20,8 @@ PropTypes.array : The prop should be an array.</p>
 <h3>What is a custom hook, and why will you create a custom hook?</h3>
 <p>Custom React JS hooks offer reusability as when a custom hook is created, it can be reused easily, which makes the code cleaner and reduces the time to write the code. It also enhances the rendering speed of the code as a custom hook does not need to be rendered again and again while rendering the whole code.</p>
         </div>
+
+
     );
 };
 

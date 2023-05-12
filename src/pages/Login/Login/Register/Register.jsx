@@ -1,12 +1,11 @@
-
-import React,{ useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../peoviders/AuthProvider';
-const Register = () => {
-   
+import { AuthContext } from '../../../../peoviders/AuthProvider';
 
-    const {createUser}=useContext(AuthContext);
+const Register = () => {
+    const {createUser}=useContext(AuthContext)
+
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleRegister = event => {
@@ -37,10 +36,9 @@ const Register = () => {
                 console.log(error);
             })
     }
-
-
     return (
-        <Container className='w-25 mx-auto'>
+        <div>
+             <Container className='w-25 mx-auto'>
             <h3>Please Register</h3>
             <Form onSubmit={handleRegister}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -77,6 +75,7 @@ const Register = () => {
                 </Form.Text>
             </Form>
         </Container>
+        </div>
     );
 };
 
