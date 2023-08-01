@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword,updateProfile, signOut } from "firebase/auth";
 import app from '../firebase/firebase.config';
 
 export const AuthContext=createContext(null);
@@ -14,10 +14,30 @@ const AuthProvider = ({children}) => {
 
 
       
-    const createUser = (email, password) => {
+    
+    const createUser = (email, password, photoURL) => {
         setLoading(true);
-        return createUserWithEmailAndPassword(auth, email, password);
-    }
+        return createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            if (photoURL) {
+              updateProfile(user, { photoURL: photoURL })
+                .then(() => {
+                  console.log("Profile photo updated successfully!");
+                })
+                .catch((error) => {
+                  console.log("Error updating profile photo:", error);
+                });
+            }
+            return userCredential;
+          })
+          .catch((error) => {
+            console.log("Error creating user:", error);
+          })
+          .finally(() => {
+            setLoading(false);
+          });
+      };
 
     const signIn = (email, password) => {
         setLoading(true);

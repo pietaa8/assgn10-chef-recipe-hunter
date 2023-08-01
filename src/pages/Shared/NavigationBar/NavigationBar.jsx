@@ -29,7 +29,13 @@ const NavigationBar = () => {
              
           </Nav>
           <Nav>
-              {user && <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
+              {user && (
+                <img
+                  src={user.photoURL}
+                  alt="Profile"
+                  style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '8px' }}
+                />
+              )
               }
 
               {user ?
