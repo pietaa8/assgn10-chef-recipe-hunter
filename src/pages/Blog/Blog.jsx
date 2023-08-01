@@ -3,7 +3,7 @@ import React from 'react';
 const Blog = () => {
     return (
         <div>
-            <h2 className='text-center'>This is blog page</h2>
+            <h2 className='text-center fw-bold mb-5'>This is blog page</h2>
 
 <h3>What is the differences between uncontrolled and controlled components?</h3>
 <p>In React, controlled components refer to components that have their state and behavior controlled by the parent component. These components rely on props passed down from the parent component to update their state and behavior. Uncontrolled components refer to components that manage their own state internally.</p>

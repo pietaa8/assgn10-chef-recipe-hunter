@@ -8,7 +8,7 @@ import { Carousel } from 'react-bootstrap';
 const Speciality = () => {
     return (
         <div>
-            <h2 className='text-center mt-5'>Most Demanding Dishes Right Now</h2>
+            <h2 className='text-center mt-5 fw-blod mb-5'>Most Demanding <span className='text-primary fw-bold'>Dishes</span></h2>
             <Carousel>
       <Carousel.Item>
         <img

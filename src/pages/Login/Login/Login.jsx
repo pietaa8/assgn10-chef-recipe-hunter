@@ -75,8 +75,10 @@ const Login = () => {
                 <Button className='mb-5 mr-5' variant="primary" type="submit">
                     Login
                 </Button>
-                <Button onClick={handleGoogleSignIn} className='mb-5' variant="primary" type="button">Sign in with Google</Button>
-                <Button onClick={handleGithubSignIn} variant="primary" type="button">Sign in with Github</Button>
+                <br/>
+
+                <Button onClick={handleGoogleSignIn} className='mb-5' variant="primary" type="submit">Sign in with Google</Button>
+                <Button onClick={handleGithubSignIn} variant="primary" type="submit">Sign in with Github</Button>
                 <br />
                 <Form.Text className="text-secondary">
                     Don't Have an Account? <Link to="/register">Register</Link>

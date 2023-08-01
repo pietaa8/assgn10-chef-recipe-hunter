@@ -6,42 +6,46 @@ import { FaUserCircle } from 'react-icons/fa';
 
 const NavigationBar = () => {
 
-    const {user,logOut}=useContext(AuthContext)
+  const { user, logOut } = useContext(AuthContext)
 
-    const handleLogOut = () => {
-        logOut()
-            .then()
-            .catch(error => console.log(error));
-    }
-    return (
-        <div>
-             <Navbar collapseOnSelect expand="lg" bg="dark" variant="light">
+  const handleLogOut = () => {
+    logOut()
+      .then()
+      .catch(error => console.log(error));
+  }
+  return (
+    <div>
+        <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
+      
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-        <Link to='/'>Home</Link>
-        <Link to='/blog'>Blog</Link>
-        
+          
+          <Link className='nav-link text-primary fw-semibold' to='/'>Home</Link>
+            <Link className='nav-link text-primary fw-semibold' to="/blog">Blog</Link>
+          
+           
+             
           </Nav>
           <Nav>
-            { user &&  <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
-      }
-      
-      {user ?
-                                <Button onClick={handleLogOut} variant="secondary">Logout</Button> :
-                                <Link to="/login">
-                                    <Button variant="secondary">Login</Button>
-                                </Link>
-                            }
-                            
-  
-          </Nav>
+              {user && <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
+              }
+
+              {user ?
+                <Button onClick={handleLogOut} variant="secondary">Logout</Button> :
+                <Link to="/login">
+                  <Button  variant="primary" className='fw-semibold'>Login</Button>
+                </Link>
+              }
+
+
+            </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default NavigationBar;
